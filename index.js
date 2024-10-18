@@ -58,6 +58,9 @@ client.on('ready', async () => {
 
 client.on('voiceStateUpdate', async (oldState, newState) => {
   if (!oldState.channel && newState.channel) {
+
+    if (newState.member.user.bot) return;
+
     console.log(`${newState.member.user.tag} joined ${newState.channel.name}`);
     const botMember = await guild.members.fetch(client.user.id);
 
