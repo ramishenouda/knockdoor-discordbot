@@ -31,8 +31,9 @@ const playSound = (sound) => {
 }
 
 client.on('ready', async () => {
-  const channelId = '1205934257860640829'
-  const guildId = '743486875876065411'
+  const channelId = process.env.CHANNEL_ID
+  const guildId = process.env.GUILD_ID
+
   guild = client.guilds.cache.get(guildId);
 
   connection = joinVoiceChannel({
